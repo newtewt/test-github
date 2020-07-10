@@ -1,0 +1,16 @@
+name: Scalability Workflow
+# This workflow is triggered on pushes to the repository.
+on:
+  push:
+    branches: 
+      - scalability-automation
+      
+jobs:
+  build:
+    name: Set up Medic on EC2 and Execute Jmeter on another EC2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start EC2 and Medic
+        run: echo "::set-env name=MEDIC_URL::TEST123"
+      - name: Execute Jmeter
+        run: ls -la && ./sample.sh
